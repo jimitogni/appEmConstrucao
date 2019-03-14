@@ -1,41 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title color="primary">
-      Cadastro de Materiais
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>CADASTRAR PRODUTOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-list lines="full">
 
-  <h4>{{var1}}</h4>
+    <ion-item>
+      <ion-label position="stacked">Nome do produto</ion-label>
+      <ion-input required type="text" [(ngModel)]="produto.nome"></ion-input>
+    </ion-item>
 
-  <h4>{{var2}}</h4>
+    <ion-item>
+      <ion-label position="stacked">Modelo do produto</ion-label>
+      <ion-input required type="text" [(ngModel)]="produto.modelo"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Nome do produto</ion-label>
-    <ion-input type="text" [(ngModel)]="nome"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Quantidade</ion-label>
+      <ion-input required type="number" [(ngModel)]="produto.quantidade"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Fabricante</ion-label>
-    <ion-input type="text" [(ngModel)]="fabricante"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Preço</ion-label>
+      <ion-input required type="number" [(ngModel)]="produto.preco"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Modelo</ion-label>
-    <ion-input type="text" [(ngModel)]="modelo"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="stacked">Quantidade</ion-label>
-    <ion-input type="number" [(ngModel)]="quantidade"></ion-input>
-  </ion-item>
-
-
-<!-- Expand -->
-<ion-button expand="full" (click)="cliqueAqui()">Clique Aqui</ion-button>
-<ion-button expand="full">LIMPAR CAMPOS</ion-button>
-
-
+  </ion-list>
+  <ion-button expand="full" (click)="salvaProduto()">Salvar</ion-button>
 </ion-content>
