@@ -65,23 +65,7 @@ export class Tab2Page implements OnInit {
     }
 
 
-    async salvaProduto() {
-      const loading = await this.loadingController.create({
-        message: 'Salvando produto..'
-      });
-      await loading.present();
-
-      if (this.produtoId) {
-        this.firebaseServer.update(this.produto, this.produtoId).then(() => {
-          loading.dismiss();
-          this.nav.navigateForward('/tab3');
-        });
-      } else {
-        this.firebaseServer.add(this.produto).then(() => {
-          loading.dismiss();
-          this.nav.navigateForward('/tab3');
-        });
-      }
-    }
+    //Vamos fazer essa em sala de aula, é bem parecida com o método acima
+    async salvaProduto() {}
 
   }
