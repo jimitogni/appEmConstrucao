@@ -7,13 +7,27 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  ola = "Deu certo";
+  nome: string="";
+  fabricante = "";
+  modelo="";
+  quantidade: number ="";
+
+  ola = "Ola ";
   var1 = "";
   var2 = "";
 
   cliqueAqui(){
-    alert(this.ola);
-    this.var1 = "Dados enviados com sucesso";
+
+    if (this.nome){
+      alert(this.ola + this.nome);
+      this.var1 = "Bem vindo " + this.nome ;
+    }
+
+    else if (!this.nome){
+      alert("em branco");
+      this.var1 = "variavel em branco";
+    }
+
   }
 
 }
