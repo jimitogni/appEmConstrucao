@@ -1,23 +1,35 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
+  <ion-toolbar color="dark"> <!--/CRIA A BARRA SUPERIOR-->
+    <ion-buttons slot="start"> <!--/CRIA A BARRA SUPERIOR -->
       <ion-back-button defaultHref="/tab1"></ion-back-button>
     </ion-buttons>
-    <ion-title>CADASTRAR PRODUTOS</ion-title>
+    <ion-title>CADASTRAR SUA IRMâ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list lines="full">
 
+    <!--O mais importante aqui é [(ngModel)]="...""
+    //Isso faz parte do framework Angular, e neste caso ele atribui a uma variavel for
+    //O que passado em [(ngModel)]="produto.nome" por exemplo,
+    //será viculado ao produto.nome do arquivo tab2.page.ts-->
+
+
+    <!-- Isso inicia um ipem normal do html, porem utilizando os componentes do IONIC-->
     <ion-item>
+      <!-- Labe é o titulo que vai aparecer acima do imput box -->
       <ion-label position="stacked">Nome do produto</ion-label>
+      <!--required significa que este imput tem que  preenchido obrigatoriameate-->
+      <!--type="text" significa que este imput vai receber apenas texto-->
+      <!-- Label é o titulo que vai aparecer acima do imput box -->
       <ion-input required type="text" [(ngModel)]="produto.nome"></ion-input>
+      <!-- Aqui fechamo os iom item-->
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Modelo do produto</ion-label>
-      <ion-input required type="text" [(ngModel)]="produto.modelo"></ion-input>
+      <ion-input type="text" [(ngModel)]="produto.modelo"></ion-input>
     </ion-item>
 
     <ion-item>

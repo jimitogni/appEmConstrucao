@@ -54,7 +54,7 @@ export class Tab2Page implements OnInit {
     //o método getTodos faz uma requisição de todos os registros existentes na API do firebase
     async getTodos() {
       const loading = await this.loadingController.create({
-        message: 'Carregando produto..'
+        message: 'Carregando sua irmã..'
       });
       await loading.present();
 
@@ -66,6 +66,24 @@ export class Tab2Page implements OnInit {
 
 
     //Vamos fazer essa em sala de aula, é bem parecida com o método acima
-    async salvaProduto() {}
+    //metodo assincrono que envia dados para serem gravados no servidor do firebase
+    async salvaProduto() {
+      const loading = await this.loadingController.create({
+        message: 'Salvando sua irmã..'
+      });
+      await loading.present();
+
+      if (this.produtoId) {
+        this.firebaseServer.atualizarDados(this.produto, this.produtoId).then(() => {
+          loading.dismiss();
+          this.nav.navigateForward('/tab3');
+        });
+      } else {
+        this.firebaseServer.insereRegisro(this.produto).then(() => {
+          loading.dismiss();
+          this.nav.navigateForward('/tab3');
+        });
+      }
+    }
 
   }
