@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto, FirebaseService } from '../services/firebase.service';
+import { Produto, FirebaseService } from '../banco/firebase.service';
 
 @Component({
   selector: 'app-tab3',
@@ -13,12 +13,12 @@ export class Tab3Page implements OnInit {
   constructor(private produtoService: FirebaseService) { }
 
   ngOnInit() {
-    this.produtoService.getTodos().subscribe(res => {
+    this.produtoService.selecionaTodos().subscribe(res => {
       this.produtos = res;
     });
   }
 
   remove(item) {
-    this.produtoService.remove(item.id);
+    this.produtoService.apagaRegistro(item.id);
   }
 }
